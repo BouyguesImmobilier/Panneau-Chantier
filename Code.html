@@ -5,19 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panneau de chantier - GAIA</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --blue: #003b49;
-      --blue-light: #0d5562;
-      --green: #97c21f;
-      --green-dark: #7ea518;
-      --bg: #f4f7f8;
-      --card: #ffffff;
-      --text: #1f1f1f;
-      --muted: #5f6b70;
-      --line: #e3e8ea;
-      --shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-      --radius: 16px;
+      --blue: #003B4A;
+      --blue-dark: #002D38;
+      --green: #86BC24;
+      --green-dark: #6F9D1D;
+      --bg: #F4F7F8;
+      --card: #FFFFFF;
+      --text: #18343C;
+      --muted: #5E6E73;
+      --line: #DDE6E8;
+      --shadow: 0 8px 20px rgba(0, 59, 74, 0.08);
+      --radius: 14px;
     }
 
     * {
@@ -26,13 +30,15 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #eef2f3, var(--bg));
+      font-family: "Nunito Sans", "Avenir Next LT Pro", "Avenir Next", Arial, sans-serif;
+      background: var(--bg);
       color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     header {
-      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      background: var(--blue);
       color: white;
       padding: 34px 20px 30px;
       text-align: center;
@@ -49,12 +55,13 @@
       margin: 10px 0 12px;
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       line-height: 1.2;
+      font-weight: 800;
     }
 
     .subtitle {
       color: white;
       text-align: center;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 1rem;
       margin: 0;
       opacity: 0.95;
@@ -70,6 +77,7 @@
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      border: 1px solid var(--line);
       padding: 28px;
       margin-bottom: 24px;
     }
@@ -79,6 +87,7 @@
       text-align: center;
       margin: 0 0 8px;
       font-size: 1.6rem;
+      font-weight: 800;
     }
 
     .underline {
@@ -91,7 +100,7 @@
 
     p {
       line-height: 1.75;
-      color: #40484b;
+      color: #304A52;
       text-align: justify;
       margin: 0 0 16px;
     }
@@ -106,7 +115,7 @@
 
     table {
       width: 100%;
-      min-width: 720px;
+      min-width: 920px;
       border-collapse: separate;
       border-spacing: 0;
       background: white;
@@ -115,13 +124,13 @@
     }
 
     thead th {
-      background: var(--green);
-      color: var(--blue);
+      background: var(--blue);
+      color: white;
       padding: 14px 16px;
       text-align: left;
       font-size: 0.96rem;
       font-weight: 700;
-      border-bottom: 2px solid #88b11d;
+      border-bottom: 4px solid var(--green);
     }
 
     tbody td {
@@ -140,23 +149,39 @@
     }
 
     tbody tr:hover {
-      background: #f1f7e6;
+      background: #EFF5F7;
       transition: background 0.2s ease;
     }
 
     tbody td:first-child {
       font-weight: 700;
       color: var(--blue);
-      width: 28%;
+      width: 21%;
     }
 
     tbody td:nth-child(2) {
-      width: 28%;
+      width: 21%;
+      font-weight: 600;
     }
 
     tbody td:nth-child(3) {
       color: var(--muted);
-      width: 44%;
+      width: 39%;
+    }
+
+    tbody td:nth-child(4) {
+      width: 19%;
+      white-space: nowrap;
+    }
+
+    .phone-link {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .phone-link:hover {
+      text-decoration: underline;
     }
 
     .table-note {
@@ -172,17 +197,18 @@
       margin: 28px auto 0;
       padding: 14px 18px;
       text-align: center;
-      background: var(--green);
-      color: var(--blue);
+      background: var(--blue);
+      color: white;
       text-decoration: none;
       border-radius: 10px;
-      font-weight: bold;
+      font-weight: 800;
       transition: 0.25s ease;
-      box-shadow: 0 6px 14px rgba(151, 194, 31, 0.28);
+      border: 1px solid var(--blue-dark);
+      box-shadow: 0 6px 14px rgba(0, 59, 74, 0.18);
     }
 
     .btn:hover {
-      background: var(--green-dark);
+      background: var(--blue-dark);
       transform: translateY(-2px);
     }
 
@@ -193,7 +219,7 @@
     footer {
       text-align: center;
       padding: 10px 20px 28px;
-      color: #667276;
+      color: var(--blue);
       font-size: 0.95rem;
     }
 
@@ -235,7 +261,7 @@
       }
 
       table {
-        min-width: 640px;
+        min-width: 820px;
       }
 
       thead th,
@@ -274,7 +300,7 @@
 <header>
   <img class="logo" src="logo.jpg" alt="Bouygues Immobilier">
 
-  <h1>Panneau de chantier GAIA </h1>
+  <h1>Panneau de chantier GAIA  </h1>
 
   <p class="subtitle">
     81 Avenue du Général de Gaulle, 68300 Saint-Louis
@@ -295,8 +321,8 @@
     </p>
 
     <p>
-      L’opération intègre également la réalisation d’un
-      <strong>parc de stationnement</strong> ainsi que de
+      L’opération intègre également un
+      <strong>parc de stationnement</strong> ainsi que
       <strong>des maisons préfabriquées en bois</strong>, dans une logique
       de qualité architecturale et de développement durable.
     </p>
@@ -312,26 +338,125 @@
           <tr>
             <th>Lot</th>
             <th>Entreprise</th>
-            <th>Localisation</th>
+            <th>Adresse</th>
+            <th>Téléphone</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Renforcement des sols</td><td>Menard SAS</td><td>Orsay</td></tr>
-          <tr><td>Gros œuvre</td><td>Armindo Joaquim</td><td>Sainte-Croix-en-Plaine</td></tr>
-          <tr><td>Étanchéité</td><td>Schoenenberger</td><td>Colmar</td></tr>
-          <tr><td>Menuiseries ext.</td><td>Les Zelles</td><td>La Bresse</td></tr>
-          <tr><td>Menuiseries int.</td><td>Beyer Menuiserie</td><td>Erstein</td></tr>
-          <tr><td>Menuiseries int.</td><td>Kleim Menuiserie</td><td>Krautergersheim</td></tr>
-          <tr><td>Plâtrerie</td><td class="non-attribue">Non attribué à ce jour</td><td>-</td></tr>
-          <tr><td>Sols</td><td class="non-attribue">Non attribué à ce jour</td><td>-</td></tr>
-          <tr><td>Peinture</td><td class="non-attribue">Non attribué à ce jour</td><td>-</td></tr>
-          <tr><td>Charpente</td><td>Arkedia</td><td>Turckheim</td></tr>
-          <tr><td>Serrurerie</td><td>Riess</td><td>Colmar</td></tr>
-          <tr><td>CVC</td><td>Stallini</td><td>Mulhouse</td></tr>
-          <tr><td>Électricité</td><td>Werner</td><td>Staffelfelden</td></tr>
-          <tr><td>Ravalement</td><td>Isol Paint</td><td>Sausheim</td></tr>
-          <tr><td>Espaces verts</td><td>ID Verde</td><td>Courbevoie</td></tr>
-          <tr><td>VRD</td><td>Alter TP</td><td>Colmar</td></tr>
+          <tr>
+            <td>Renforcement des sols</td>
+            <td>Menard SAS</td>
+            <td>22 rue Jean Rostand, 91400 Orsay</td>
+            <td><a class="phone-link" href="tel:+33169013738">01 69 01 37 38</a></td>
+          </tr>
+          <tr>
+            <td>Gros œuvre</td>
+            <td>Armindo Joaquim</td>
+            <td>9 rue Clément Ader, 68127 Sainte-Croix-en-Plaine</td>
+            <td><a class="phone-link" href="tel:+33389236003">03 89 23 60 03</a></td>
+          </tr>
+          <tr>
+            <td>Étanchéité</td>
+            <td>Schoenenberger</td>
+            <td>11 rue d'Altkirch, 68000 Colmar</td>
+            <td><a class="phone-link" href="tel:+33389791921">03 89 79 19 21</a></td>
+          </tr>
+          <tr>
+            <td>Menuiseries extérieures</td>
+            <td>Les Zelles</td>
+            <td>Chemin des Écorces, 88250 La Bresse</td>
+            <td><a class="phone-link" href="tel:+33329255311">03 29 25 53 11</a></td>
+          </tr>
+          <tr>
+            <td>Menuiseries intérieures</td>
+            <td>Beyer Menuiserie</td>
+            <td>ZI - rue Ettore Bugatti, 67150 Erstein</td>
+            <td><a class="phone-link" href="tel:+33388980524">03 88 98 05 24</a></td>
+          </tr>
+          <tr>
+            <td>Menuiseries intérieures</td>
+            <td>Kleim Menuiserie</td>
+            <td>6 rue du Maréchal Foch, 67880 Krautergersheim</td>
+            <td><a class="phone-link" href="tel:+33388957378">03 88 95 73 78</a></td>
+          </tr>
+          <tr>
+            <td>Plâtrerie</td>
+            <td>SOBRA</td>
+            <td>ZI Les Rives du Doubs, 1 rue de la Libération, 25700 Valentigney</td>
+            <td><a class="phone-link" href="tel:+33381346911">03 81 34 69 11</a></td>
+          </tr>
+          <tr>
+            <td>Plâtrerie</td>
+            <td>ISOSYSTEM</td>
+            <td>26 rue des Gaulois, 68390 Sausheim</td>
+            <td><a class="phone-link" href="tel:+33389561179">03 89 56 11 79</a></td>
+          </tr>
+          <tr>
+            <td>Charpente</td>
+            <td>Arkedia</td>
+            <td>1 chemin du Heilgass, zone artisanale, 68230 Turckheim</td>
+            <td><a class="phone-link" href="tel:+33389279260">03 89 27 92 60</a></td>
+          </tr>
+          <tr>
+            <td>Sols souples</td>
+            <td>Heinimann</td>
+            <td>Zone artisanale, 4 A rue Joseph Pauw, 68320 Muntzenheim</td>
+            <td><a class="phone-link" href="tel:+33389221594">03 89 22 15 94</a></td>
+          </tr>
+          <tr>
+            <td>Parquet</td>
+            <td>CF Parquet</td>
+            <td>13 rue Desaix, 67450 Mundolsheim</td>
+            <td><a class="phone-link" href="tel:+33388518644">03 88 51 86 44</a></td>
+          </tr>
+          <tr>
+            <td>Peinture</td>
+            <td>SRP</td>
+            <td>4 rue Alexandre Fleming, 68100 Mulhouse</td>
+            <td><a class="phone-link" href="tel:+33235620138">02 35 62 01 38</a></td>
+          </tr>
+          <tr>
+            <td>Serrurerie</td>
+            <td>Riess</td>
+            <td>8 rue des Frères Lumière, 68000 Colmar</td>
+            <td><a class="phone-link" href="tel:+33389725179">03 89 72 51 79</a></td>
+          </tr>
+          <tr>
+            <td>CVC</td>
+            <td>Stallini</td>
+            <td>ZAC du Parc des Collines, 57 rue Jean Monnet, 68200 Mulhouse</td>
+            <td><a class="phone-link" href="tel:+33389335890">03 89 33 58 90</a></td>
+          </tr>
+          <tr>
+            <td>Électricité</td>
+            <td>Werner</td>
+            <td>20 rue Marie Louise, 68850 Staffelfelden</td>
+            <td><a class="phone-link" href="tel:+33389521225">03 89 52 12 25</a></td>
+          </tr>
+          <tr>
+            <td>Ravalement</td>
+            <td>Isol Paint</td>
+            <td>2 rue des Alpes, 68390 Sausheim</td>
+            <td><a class="phone-link" href="tel:+33629786448">06 29 78 64 48</a></td>
+          </tr>
+          <tr>
+            <td>Espaces verts</td>
+            <td>ID Verde</td>
+            <td>25 quai du Président Paul Doumer, immeuble Workstation, 92400 Courbevoie</td>
+            <td><a class="phone-link" href="tel:+33182970480">01 82 97 04 80</a></td>
+          </tr>
+          <tr>
+            <td>VRD</td>
+            <td>Alter TP</td>
+            <td>18 rue Gay-Lussac, 68000 Colmar</td>
+            <td><a class="phone-link" href="tel:+33389218400">03 89 21 84 00</a></td>
+          </tr>
+          <tr>
+            <td>Maisons</td>
+            <td>BOOA</td>
+            <td>2 rue de l'Industrie, 67730 Châtenois</td>
+            <td><a class="phone-link" href="tel:+33389584500">03 89 58 45 00</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -340,7 +465,7 @@
 
     <div class="btn-wrap">
       <a class="btn" href="Panneau%20de%20chantier_BADER.pdf" target="_blank">
-        📄 Ouvrir le panneau PDF
+        Ouvrir le panneau PDF
       </a>
     </div>
   </div>
